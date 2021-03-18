@@ -1,2 +1,7 @@
 #1
 puts "Hello, world!"
+#2
+def greetings(name)
+  print("Приветик, ", name)
+end
+puts greetings("Анка")

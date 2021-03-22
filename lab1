@@ -40,3 +40,9 @@ when "C#"
 when "Petooh"
   puts "Ваши вкусы очень специфичны..."
 end
+
+#4
+puts"Введите команду операционной системы: "
+system STDIN.gets
+puts "Введите команду Ruby: "
+eval STDIN.gets

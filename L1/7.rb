@@ -21,3 +21,10 @@ def maxPrime number
   end
   maxDel
 end
+
+# Метод 2. Найти произведение цифр числа, не делящихся на 5.
+def isntFive number
+  mult = 1
+  number.digits.map{ |digit| mult *= digit if digit % 5 != 0 }
+  mult
+end

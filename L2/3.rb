@@ -10,5 +10,11 @@ def add_1 array
   p array << gets.to_i
 end
 
+def add_2 array
+  puts "Введите новый элемент: "
+  p array += [5]
+end
+
 n = input 3
 add_1 n
+add_2 n

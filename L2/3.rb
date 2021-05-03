@@ -22,8 +22,13 @@ def add_4 array
   p array.unshift(7)
 end
 
+def add_5 array
+  p  array.insert(3,4)
+end
+
 n = input 3
 add_1 n
 add_2 n
 add_3 n
 add_4 n
+add_5 n

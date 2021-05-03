@@ -35,7 +35,7 @@ def mult arr
 end
 
 puts "Введите количество элементов массива и сами элементы"
-array=Array.new(gets.to_i){gets.to_i}
+array = Array.new(gets.to_i){gets.to_i}
 min array
 max array
 sum array

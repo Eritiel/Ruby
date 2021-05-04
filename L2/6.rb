@@ -30,10 +30,21 @@ end
 
 #1.33. Проверка, чередуются ли в массиве положительные и отрицательные числа
 def chech arr
-	for i in 0..arr.length-2
-		if arr[i] * arr[i+1] > 0
-			return false
-		end
-	end
-	return true
+  for i in 0..arr.length-2
+    if arr[i] * arr[i+1] > 0
+      return false
+    end
+  end
+  return true
+end
+
+#1.45. Найти сумму элементов, значение которых лежит в интервале a..b
+def sumOfElemsInInterval(arr, a, b)
+  sum = 0
+  for elem in arr
+    if elem >= a and elem <= b
+      sum += elem
+    end
+  end
+  return sum
 end

@@ -39,7 +39,7 @@ def chech arr
 end
 
 #1.45. Найти сумму элементов, значение которых лежит в интервале a..b
-def sumOfElemsInInterval(arr, a, b)
+def sum arr, a, b
   sum = 0
   for elem in arr
     if elem >= a and elem <= b

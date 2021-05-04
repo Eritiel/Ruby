@@ -48,3 +48,16 @@ def sum arr, a, b
   end
   return sum
 end
+
+#1.57. Найти элементы, большие, чем сумма всех предыдущих элементов
+def find arr
+  result = Array.new
+  sum = 0
+  for elem in arr
+    if elem > sum
+      result.push(elem)
+    end
+    sum += elem
+  end
+  return result
+end

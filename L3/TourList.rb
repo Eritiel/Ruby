@@ -5,4 +5,8 @@ class TourList
     @list = []
   end
   
+  def add(tour)
+    @list << tour
+  end
+  
 end

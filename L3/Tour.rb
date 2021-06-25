@@ -58,8 +58,13 @@ class Tour
 
   def self.country_format(country)
     if country_check(country)
-      s = country.capitalize
-      return s
+      if(country.include? '-')
+        return country.split('-').map{|el| el.capitalize}.join('-')
+      elsif (country.include? ' ')
+        return country.split(' ').map{|el| el.capitalize}.join(' ')
+      else
+        return country.capitalize
+      end
     else
       raise ArgumentValueError.new("Неверный формат названия страны")
     end

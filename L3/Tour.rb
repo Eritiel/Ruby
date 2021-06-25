@@ -24,11 +24,11 @@ class Tour
   end
 
   def price=(new_price)
-    @price = new_price
+    @price = Tour.price_format(new_price)
   end
 
   def country=(new_country)
-    @country = new_country
+    @country = Tour.country_format(new_country)
   end
 
   def image_link=(new_image_link)
@@ -46,3 +46,27 @@ class Tour
   def self.image_link_check(image_link)
     image_link =~ /^((ftp|http|https):\/\/)?(www\.)?([A-Za-zА-Яа-я0-9]{1}[A-Za-zА-Яа-я0-9\-]*\.?)*\.{1}[A-Za-zА-Яа-я0-9-]{2,8}(\/([\w#!:.?+=&%@!\-\/])*)?/
   end
+  
+    def self.price_format(price)
+    if price_check(price)
+      s = price + ' ' + 'руб.'
+      return s
+    else
+      raise ArgumentValueError.new("Неверный формат цены")
+    end
+  end
+
+  def self.country_format(country)
+    if country_check(country)
+      s = country.capitalize
+      return s
+    else
+      raise ArgumentValueError.new("Неверный формат названия страны")
+    end
+  end
+
+  def to_s
+    "ID: #{id}; Количество билетов: #{ticket_count()}; Название тура: #{name()}; Описание тура: #{description()}; Цена тура: #{price()}; Страна: #{country()}; Ссылка на картинку: #{image_link}"
+  end
+
+end

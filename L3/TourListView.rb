@@ -51,5 +51,23 @@ class TourListView
     @tour_list.read_file()
   end
 
+  def search_tour
+    puts "Введите название, цену, страну или описание тура:"
+    value =  STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
+      name = value
+      tour = @tour_list.search(name)
+    if Tour.price_check value
+      price = Tour.price_format(value)
+      tour = @tour_list.search(price)
+    end
+    if Tour.country_check value
+      country = Tour.country_format(value)
+      tour = @tour_list.search(country)
+    end
+    description = value
+    tour = @tour_list.search(description)
+    puts tour
+  end
+
   
 end

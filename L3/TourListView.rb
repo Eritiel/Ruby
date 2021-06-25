@@ -105,3 +105,39 @@ class TourListView
   end
 end
 end
+
+
+test_tour = TourListView.new()
+def menu tour
+  puts "1. Добавить тур."
+  puts "2. Удалить тур"
+  puts "3. Посмотреть список туров"
+  puts "4. Запись в файл"
+  puts "5. Чтение из файла"
+  puts "6. Поиск тура"
+  puts "7. Изменить данные о туре"
+  puts "8. Закрыть программу"
+
+  method = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
+  case method
+  when "1"
+    tour.add_tour()
+  when "2"
+    tour.delete_tour()
+  when "3"
+    tour.show_list()
+  when "4"
+    tour.write_file()
+  when "5"
+    tour.read_file()
+  when "6"
+    tour.search_tour()
+  when "7"
+    tour.edit_tour()
+  when "8"
+    exit()
+  end
+  menu(tour)
+end
+
+menu(test_tour)

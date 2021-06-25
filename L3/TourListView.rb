@@ -27,6 +27,16 @@ class TourListView
     tour = Tour.new($id, tickets_count, name, description, price, country, link)
     @tour_list.add(tour)
   end
+  
+  def delete_tour
+    puts "Введите название тура, который должен быть удален: "
+    target = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
+    tour = @tour_list.search(target)
+    puts(tour.to_s)
+    puts("Вы уверены, что хотите удалить данные о туре? [Да/Нет]")
+    answer = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil).downcase
+    @tour_list.delete(tour) if answer == "да"
+  end
 
   
 end

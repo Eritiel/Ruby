@@ -40,5 +40,18 @@ class TourList
       }
     }
   end
+
+  def read_file
+    file = File.open('tour.txt')
+    tours = file.read
+    tours = tours.force_encoding("cp866")
+    tours = tours.split("\n")
+    tours.each do |tour|
+      tour = tour.split(' || ')
+      puts tour[3]
+      tour.map { |elem| elem.force_encoding("UTF-8") }
+      add(Tour.new(tour[0], tour[1], tour[2], tour[3], tour[4], tour[5], tour[6]))
+    end
+  end
   
 end

@@ -29,5 +29,16 @@ class TourList
                        end
     }
   end
+
+  def write_file
+    file = File.open('tour.txt', 'a') {|file|
+      @list.each_with_index{|tour, id|
+        file.write(id.to_s << ' || ' << tour.ticket_count.to_s << ' || ' << tour.name << ' || ' << tour.description << ' || ' <<
+                     tour.price.split(' ')[0] << ' || ' << tour.country << ' || ' << tour.image_link)
+        file.write("\n")
+
+      }
+    }
+  end
   
 end

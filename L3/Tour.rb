@@ -34,3 +34,15 @@ class Tour
   def image_link=(new_image_link)
     @image_link = new_image_link
   end
+  
+  def self.country_check(country)
+    country =~ /[а-яА-Я]+/
+  end
+
+  def self.price_check(price)
+    price =~ /[0-9]+/
+  end
+
+  def self.image_link_check(image_link)
+    image_link =~ /^((ftp|http|https):\/\/)?(www\.)?([A-Za-zА-Яа-я0-9]{1}[A-Za-zА-Яа-я0-9\-]*\.?)*\.{1}[A-Za-zА-Яа-я0-9-]{2,8}(\/([\w#!:.?+=&%@!\-\/])*)?/
+  end

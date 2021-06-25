@@ -18,16 +18,8 @@ class TourList
     @list.delete(tour)
   end
 
-  def list_length
-    @list.length
-  end
-
   def search(info)
-    @list.each{|tour| if [tour.name, tour.price, tour.country, tour.description].include? info
-                            return tour
-                       else return "Тура с искомыми значениями нет в списке"
-                       end
-    }
+    @list.select{ |tour| tour.name == info || tour.description == info || tour.price == info || tour.country == info}[0]
   end
 
   def write_file

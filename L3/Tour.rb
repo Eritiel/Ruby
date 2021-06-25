@@ -36,7 +36,7 @@ class Tour
   end
   
   def self.country_check(country)
-    country =~ /[а-яА-Я]+/
+    country =~ /[а-яА-Я][\s-]?[а-яА-Я]+/
   end
 
   def self.price_check(price)

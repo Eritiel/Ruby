@@ -37,6 +37,19 @@ class TourListView
     answer = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil).downcase
     @tour_list.delete(tour) if answer == "да"
   end
+  
+  def show_list
+    puts "Список туров: "
+    puts @tour_list.to_s
+  end
+
+  def write_file
+    @tour_list.write_file()
+  end
+
+  def read_file
+    @tour_list.read_file()
+  end
 
   
 end

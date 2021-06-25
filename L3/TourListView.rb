@@ -69,5 +69,39 @@ class TourListView
     puts tour
   end
 
-  
+  def edit_tour
+    show_list()
+    puts "Введите название тура, данные о котором должны быть изменены: "
+    target= STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
+    tour = @tour_list.search(target)
+    puts "Введите поле для редактирования: "
+    puts "1 - Количество билетов"
+    puts "2 - Название тура"
+    puts "3 - Описание тура"
+    puts "4 - Цена"
+    puts "5 - Страна"
+    puts "6 - Ссылка на картинку"
+    puts "."
+    arg = STDIN.gets.chomp()
+    case arg
+    when "1"
+      puts "Текущее значение: #{tour.ticket_count}"
+      tour.ticket_count = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil).to_i
+    when "2"
+      puts "Текущее значение: #{tour.name}"
+      tour.name =  STDIN.gets.chomp
+    when "3"
+      puts "Текущее значение: #{tour.description}"
+      tour.description = STDIN.gets.chomp
+    when "4"
+      puts "Текущее значение: #{tour.price}"
+      tour.price = Tour.price_format(STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil))
+    when "5"
+      puts "Текущее значение: #{tour.country}"
+      tour.country = Tour.country_format(STDIN.gets.chomp)
+    when "6"
+      puts "Текущее значение: #{tour.image_link}"
+      tour.image_link = STDIN.gets.chomp
+  end
+end
 end

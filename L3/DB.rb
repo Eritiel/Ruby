@@ -1,4 +1,5 @@
 require 'mysql2'
+require_relative 'Tour'
 
 class DB
   @@instance = nil

@@ -1,4 +1,5 @@
 require_relative "Tour"
+require_relative "DB"
 
 class TourList
   def initialize

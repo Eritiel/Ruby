@@ -9,4 +9,12 @@ class DB
       :password => '******',
       :database => 'tour')
   end
+
+  def self.get_instance
+    if @@instance == nil
+      @@instance = DB.new
+    end
+    @@instance
+  end
+
 end

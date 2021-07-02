@@ -42,10 +42,10 @@ class DB
   end
 
   def add_tour(id, ticketscount, name, desciption, imagepreview, price, country)
-      @connection.query("INSERT INTO `tour`.`tours` (`id`, `ticketscount` ,`name` ,`desciption` ,`imagepreview` ,`price` ,
-                                   `country`)
-                                 VALUES ('#{id}', '#{ticketscount}', '#{name}', '#{desciption}', '#{imagepreview}', '#{price}',
-                                   '#{country}')")
+      @connection.query("INSERT INTO `tour`.`tours` (`id`, `ticketscount` ,`name` ,`desciption` ,`price` ,
+                                   `country`, `imagepreview`)
+                                 VALUES ('#{id}', '#{ticketscount}', '#{name}', '#{desciption}', '#{price}',
+                                   '#{country}', '#{imagepreview}')")
   end  
   
   def delete_tour(emp)

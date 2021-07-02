@@ -9,6 +9,20 @@ class TourList
     @list << tour
   end
   
+  def read_db
+    @list = DB.get_instance.read_list
+  end
+
+  def add_to_db(id, ticket_count, name, description, price, country, image_link)
+    DB.get_instance.add_tour(id, ticket_count, name, description, price, country, image_link)
+  end
+
+  def delete_from_db(tour)
+    DB.get_instance.delete_tour(tour)
+    @list = []
+    read_db
+  end
+  
   def to_s
     @list.each{|tour| tour.to_s}
   end

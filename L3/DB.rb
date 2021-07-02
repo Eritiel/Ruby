@@ -35,4 +35,8 @@ class DB
                                    '#{country}')")
   end  
   
+  def delete_tour(emp)
+    @connection.query("DELETE FROM tours WHERE name = '#{emp.name}'")
+  end
+
 end

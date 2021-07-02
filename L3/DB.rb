@@ -29,7 +29,7 @@ class DB
     list_tours
   end
 
-  def change_emp(emp)
+  def change_tour(emp)
     query_str = "UPDATE tours
                            SET ticketscount = '#{emp.ticketscount}',
                                name = '#{emp.name}',

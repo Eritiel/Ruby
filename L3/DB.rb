@@ -34,9 +34,9 @@ class DB
                            SET ticketscount = '#{emp.ticketscount}',
                                name = '#{emp.name}',
                                desciption = '#{emp.desciption}',
-                               imagepreview = '#{emp.imagepreview}',
                                price = '#{emp.price}',
                                country =' #{emp.country}',
+                               imagepreview = '#{emp.imagepreview}',
                            WHERE name = #{emp.name}"
     @connection.query(query_str)
   end

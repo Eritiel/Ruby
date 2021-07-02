@@ -29,6 +29,18 @@ class DB
     list_tours
   end
 
+  def change_emp(emp)
+    query_str = "UPDATE tours
+                           SET ticketscount = '#{emp.ticketscount}',
+                               name = '#{emp.name}',
+                               desciption = '#{emp.desciption}',
+                               imagepreview = '#{emp.imagepreview}',
+                               price = '#{emp.price}',
+                               country =' #{emp.country}',
+                           WHERE name = #{emp.name}"
+    @connection.query(query_str)
+  end
+
   def add_tour(id, ticketscount, name, desciption, imagepreview, price, country)
       @connection.query("INSERT INTO `tour`.`tours` (`id`, `ticketscount` ,`name` ,`desciption` ,`imagepreview` ,`price` ,
                                    `country`)

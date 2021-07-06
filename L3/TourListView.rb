@@ -52,7 +52,7 @@ class TourListView
   end
 
   def read_DB
-    @tour_list.read_DB
+    @tour_list.read_db
   end
 
   def search_tour

@@ -1,5 +1,7 @@
 require_relative "Tour"
 require_relative "DB"
+require 'yaml'
+require 'json'
 
 class TourList
   def initialize

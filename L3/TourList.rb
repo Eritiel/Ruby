@@ -62,5 +62,9 @@ class TourList
       add(Tour.new(tour[0], tour[1], tour[2], tour[3], tour[4], tour[5], tour[6]))
     end
   end
+
+  def write_list_YAML
+    File.open("tours.yml", "w:utf-8") { |file| file.write(@list.to_yaml) }
+  end
   
 end

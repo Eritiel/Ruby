@@ -73,8 +73,8 @@ class TourList
   
   def write_list_JSON
     File.open("tours.json","w:UTF-8") do |file|
-  		tempHash = {}
-  		@list.each_with_index do |tour, id|
+      tempHash = {}
+      @list.each_with_index do |tour, id|
         tempHash[id] = { 
           "id": tour.id,
           "ticket_count": tour.ticket_count,

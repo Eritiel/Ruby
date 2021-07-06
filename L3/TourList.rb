@@ -88,5 +88,16 @@ class TourList
       file.write(JSON.pretty_generate(tempHash))
   	end
   end
+
+  def read_list_JSON
+    File.open("tours.json", 'r:UTF-8') do |file|
+      data = JSON.parse(file.read)
+      data.each do |key, value|
+        tour = Tour.new(value["id"], value["ticket_count"], value["name"], value["description"],
+          value["price"], value["country"], value["image_link"])
+        add(tour)
+      end
+    end
+  end
   
 end

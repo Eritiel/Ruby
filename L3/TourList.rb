@@ -75,17 +75,17 @@ class TourList
     File.open("tours.json","w:UTF-8") do |file|
   		tempHash = {}
   		@list.each_with_index do |tour, id|
-  		  tempHash[id] = { 
-                          "id": tour.id,
-  					              "ticket_count": tour.ticket_count,
-                      	  "name": tour.name,
-                      	  "description": tour.description,
-                      	  "price": tour.price,
-                      	  "country": tour.country,
-                      		"image_link": tour.passport.image_link
-  				               }
-  		end
-  		file.write(JSON.pretty_generate(tempHash))
+        tempHash[id] = { 
+          "id": tour.id,
+          "ticket_count": tour.ticket_count,
+          "name": tour.name,
+          "description": tour.description,
+          "price": tour.price,
+          "country": tour.country,
+          "image_link": tour.passport.image_link
+        }
+      end
+      file.write(JSON.pretty_generate(tempHash))
   	end
   end
   

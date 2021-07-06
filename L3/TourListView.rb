@@ -51,6 +51,10 @@ class TourListView
     @tour_list.read_file()
   end
 
+  def read_DB
+    @tour_list.read_DB
+  end
+
   def search_tour
     puts "Введите название, цену, страну или описание тура:"
     value =  STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
@@ -116,7 +120,8 @@ def menu tour
   puts "5. Чтение из файла"
   puts "6. Поиск тура"
   puts "7. Изменить данные о туре"
-  puts "8. Закрыть программу"
+  puts "8. Прочитать из БД"
+  puts "9. Закрыть программу"
 
   method = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
   case method
@@ -135,6 +140,8 @@ def menu tour
   when "7"
     tour.edit_tour()
   when "8"
+    tour.read_DB()
+  when "9"
     exit()
   end
   menu(tour)

@@ -66,5 +66,9 @@ class TourList
   def write_list_YAML
     File.open("tours.yml", "w:utf-8") { |file| file.write(@list.to_yaml) }
   end
+
+  def read_list_YAML
+    @list = YAML::load(File.open('tours.yml', 'r:UTF-8'))
+  end
   
 end

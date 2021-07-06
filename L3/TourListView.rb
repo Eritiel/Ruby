@@ -51,6 +51,22 @@ class TourListView
     @tour_list.read_file()
   end
 
+  def yaml_write
+    @tour_list.write_list_YAML()
+  end
+
+  def yaml_read
+    @tour_list.read_list_YAML()
+  end
+
+  def json_write
+    @tour_list.write_list_JSON()
+  end
+
+  def json_read
+    @tour_list.read_list_JSON()
+  end
+
   def read_DB
     @tour_list.read_db
   end
@@ -121,7 +137,11 @@ def menu tour
   puts "6. Поиск тура"
   puts "7. Изменить данные о туре"
   puts "8. Прочитать из БД"
-  puts "9. Закрыть программу"
+  puts "9. Запись в YAML"
+  puts "10. Чтение из YAML"
+  puts "11. Запись в JSON"
+  puts "12. Чтение из JSON"
+  puts "13. Закрыть программу"
 
   method = STDIN.gets.chomp.force_encoding("cp866").encode("utf-8", replace: nil)
   case method
@@ -142,6 +162,14 @@ def menu tour
   when "8"
     tour.read_DB()
   when "9"
+    tour.yaml_write()
+  when "10"
+    tour.yaml_read()
+  when "11"
+    tour.json_write()
+  when "12"
+    tour.json_read()
+  when "13"
     exit()
   end
   menu(tour)

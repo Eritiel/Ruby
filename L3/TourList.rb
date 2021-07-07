@@ -86,7 +86,7 @@ class TourList
         }
       end
       file.write(JSON.pretty_generate(tempHash))
-  	end
+    end
   end
 
   def read_list_JSON
